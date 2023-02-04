@@ -1,0 +1,193 @@
+body {
+  font-family: OpenSans, sans-serif;
+  background-color: #ffffff;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  width: 100%;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrapper {
+  margin-bottom: 60px;
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card-wrapper {
+  margin-bottom: 20px;
+  height: 120px;
+  perspective: 350px;
+}
+
+.cards {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 1s, background-color 1s;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  border-radius: 50px;
+  border: 2px solid black;
+}
+
+.card {
+  display: flex;
+  padding-left: 20%;
+  align-items: center;
+  position: absolute;
+
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+.card-front {
+  color: #000;
+  background-image: url('img/animal-bird-domestic-4-svgrepo-com.svg');
+}
+
+.card-back {
+  background-image: unset;
+  overflow: hidden;
+  font-size: 70px;
+  background-image: none;
+  transform: rotateY(180deg);
+}
+
+.card-back img {
+  width: 80%;
+  height: 80%;
+}
+.cards.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.cards.success {
+  background-color: rgb(53, 113, 204);
+  pointer-events: none;
+}
+
+.btn {
+  padding: 0;
+  padding: 15px 20px;
+  border-radius: 30px;
+  font-size: 20px;
+  border: none;
+  background-color: rgb(216, 202, 186);
+  cursor: pointer;
+}
+
+.timer {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.wrapper-modal {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.wrapper-modal.active {
+  display: block;
+}
+
+.modal-window {
+  position: absolute;
+  display: flex;
+  padding: 50px;
+  flex-direction: column;
+  align-items: center;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 300px;
+  z-index: 5;
+  border: 1px solid black;
+  background-color: #ffffff;
+  border-radius: 20px;
+}
+
+.capture-choice {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.input-choice {
+  margin-bottom: 20px;
+  -webkit-appearance: none; /* Переопределение стилей CSS по умолчанию */
+  appearance: none;
+  width: 80%; /* Полная ширина */
+  height: 25px; /* Заданная высота */
+  background: #d3d3d3; /* Серый фон */
+  outline: none; /* Удалить контур */
+  opacity: 0.7; /* Установите прозрачность (для эффектов наведения мыши при наведении курсора) */
+  -webkit-transition: 0.2s; /* 0.2 секундный переход при наведении курсора */
+  transition: opacity 0.2s;
+}
+
+.input-choice:hover {
+  opacity: 1;
+}
+
+/*Ползунок обработчик (использовать -webkit- (Chrome, Opera, Safari, Edge) и -moz- (Firefox) чтобы переопределить внешний вид по умолчанию ) */
+.input-choice::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Переопределить внешний вид по умолчанию */
+  appearance: none;
+  width: 25px; /* Установите определенную ширину обработчика ползунка */
+  height: 25px; /* Высота обработчика ползунка */
+  background: #4caf50; /* Зеленый фон */
+  cursor: pointer; /* Курсор при наведении */
+}
+
+.input-choice::-moz-range-thumb {
+  width: 25px; /* Установите определенную ширину обработчика ползунка */
+  height: 25px; /* Высота обработчика подзунка */
+  background: #4caf50; /* Зеленый фон */
+  cursor: pointer; /* Курсор при наведении */
+}
+
+.button-choice {
+  width: 50%;
+  margin-bottom: auto;
+  padding: 0;
+  padding: 15px 20px;
+  border-radius: 30px;
+  font-size: 20px;
+  border: none;
+  background-color: rgb(216, 202, 186);
+  cursor: pointer;
+}
